@@ -12,12 +12,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Main.class, args);
-		
+
 	}
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDao studentDao){
 		return runner -> {
-			createStudent(studentDao);
+			//createStudent(studentDao);
+			getStudentInfo();
 		};
 	}
 	//create student
@@ -27,5 +28,13 @@ public class Main {
 		System.out.println("Saving the student");
 		studentDao.save(student);
 		System.out.println("Saved student. Generated ID: " + student.getId());
+	}
+	private void getStudentInfo(StudentDao studentDao){
+		System.out.println("Creating new student object...");
+		Student student = new Student("Dilan","Tekin","test@test.com");
+		System.out.println("Saving the student");
+		System.out.println("Getting the student...");
+		int id = student.getId();
+		System.out.println("ID:" + student.getId());
 	}
 }
