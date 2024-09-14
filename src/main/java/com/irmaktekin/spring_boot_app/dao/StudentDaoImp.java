@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class StudentDaoImp implements StudentDao{
 
     private final EntityManager entityManager;
-
     @Autowired
     public StudentDaoImp(EntityManager entityManager) {
         this.entityManager = entityManager;
