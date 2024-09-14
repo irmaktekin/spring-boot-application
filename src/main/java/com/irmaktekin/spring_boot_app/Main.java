@@ -18,7 +18,7 @@ public class Main {
 	public CommandLineRunner commandLineRunner(StudentDao studentDao){
 		return runner -> {
 			//createStudent(studentDao);
-			getStudentInfo();
+			getStudentInfo(studentDao);
 		};
 	}
 	//create student
@@ -33,6 +33,7 @@ public class Main {
 		System.out.println("Creating new student object...");
 		Student student = new Student("Dilan","Tekin","test@test.com");
 		System.out.println("Saving the student");
+		studentDao.save(student);
 		System.out.println("Getting the student...");
 		int id = student.getId();
 		System.out.println("ID:" + student.getId());
